@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@600&display=swap');
+
+        body {
+            font-family: 'Cascadia Code', monospace;
+            background-color: #add8e6; /* Light blue background */
+            text-align: left;
+            padding: 50px;
+            overflow: hidden;
+            color: black;
+        }
+
+        .birthday-message {
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 90%;
+            margin: 10px; /* Not centered */
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: calc(1.5vw + 1.5vh); /* Dynamically adjusts with screen size */
+            line-height: 1.5;
+            color: black;
+            position: relative;
+            z-index: 100; /* Ensure text is above clouds */
+        }
+
+        .cloud {
+            width: 80px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            animation: float 8s infinite ease-in-out;
+            z-index: 1; /* Clouds behind the text */
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .cloud::before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: -15px;
+        }
+
+        .cloud::after {
+            width: 100px;
+            height: 100px;
+            top: -50px;
+            left: 30px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-100px) translateX(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(600px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="birthday-message">
+        <p>Happy Birthday, Phương Uyên! 🎉🎂</p>
+        <p>Wishing you the happiest of birthdays! 🎉🎂🎈</p>
+        <p>May this day be filled with smiles, love, and endless happiness, just like the way you make me feel every single day.</p>
+        <p>Because time is so urgent, I've only prepared this much. I hope you like it. Even though it's not very complete, I'll make it up to you on Christmas.</p>
+        <p>- Minh ❤️</p>
+    </div>
+
+    <script>
+        function startClouds() {
+            for (let i = 0; i < 50; i++) { // Increased cloud density
+                let cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                cloud.style.left = Math.random() * window.innerWidth + 'px';
+                cloud.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(cloud);
+            }
+        }
+
+        // Start clouds animation
+        startClouds();
+    </script>
+    
+</body>
+</html>
